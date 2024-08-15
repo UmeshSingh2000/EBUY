@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Homepage from './Pages/Hompage/Homepage'
 import Navbar from './Components/Navbar/Navbar'
 import LocomotiveScroll from 'locomotive-scroll';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 const App = () => {
@@ -18,8 +19,9 @@ const App = () => {
   }, []);
   return (
     <div>
-      <Navbar/>
-      <Homepage/>
+      {/* <Navbar/>
+      <Homepage/> */}
+      <Dashboard/>
     </div>
   )
 }
