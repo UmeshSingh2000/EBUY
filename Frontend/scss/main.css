@@ -88,6 +88,13 @@ html {
   justify-content: center;
   align-items: center;
 }
+.homepage .homepageContent p {
+  font-size: 2vw;
+  color: white;
+}
+.homepage .homepageContent p span {
+  color: #C7F300;
+}
 .homepage .homepageContent .content span {
   color: #D9D9D9;
   font-weight: 500;
