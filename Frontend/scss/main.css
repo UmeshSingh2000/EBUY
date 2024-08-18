@@ -12,7 +12,18 @@ html {
   width: 100%;
 }
 
+.hamburger_menu {
+  position: absolute;
+  left: 0;
+  top: -40%;
+  background-color: #101210;
+  height: 100vh;
+  width: 100%;
+}
+
 .navbar {
+  z-index: 100;
+  position: relative;
   color: white;
   height: 15vh;
   background-color: #101210;
@@ -24,6 +35,7 @@ html {
   background-color: #C7F300;
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 .navbar .topHeader marquee {
   width: 100%;
@@ -341,4 +353,100 @@ html {
   -o-object-fit: contain;
      object-fit: contain;
   margin-top: 10px;
+}
+
+.newArrival {
+  padding-top: 30px;
+  height: 100vh;
+  width: 100%;
+}
+.newArrival .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newArrival .heading h1 {
+  font-size: 2.5vw;
+  font-weight: 300;
+  text-decoration: underline;
+  font-family: "Montserrat", sans-serif;
+}
+.newArrival .heading p {
+  margin-top: 10px;
+  font-size: 1.5vw;
+  letter-spacing: 10px;
+  color: #6F6F6F;
+}
+.newArrival .product {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  gap: 50px;
+  margin: 2vw 10vw;
+  overflow: auto;
+}
+.newArrival .product .row {
+  width: 400px;
+}
+.newArrival .product .row .image {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 50px;
+  background-color: #EDEDED;
+  position: relative;
+  cursor: pointer;
+}
+.newArrival .product .row .image img {
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+.newArrival .product .row .image::after {
+  content: "View";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  color: #C7F300;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(31, 31, 31, 0.315);
+  transition: all 0.3s ease-in-out;
+}
+.newArrival .product .row .image:hover::after {
+  top: 0;
+}
+.newArrival .product .row .image:hover img {
+  transform: scale(0.9);
+}
+.newArrival .product .row .description p {
+  font-size: 1.2vw;
+  font-family: "Montserrat", sans-serif;
+}
+.newArrival .product .row .description h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6vw;
+  font-weight: 500;
+}
+.newArrival .product .row .description .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.newArrival .product .row .description .price h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.newArrival .product .row .description .price p {
+  font-family: "Montserrat", sans-serif;
+  color: red;
+  font-size: 1vw;
+  font-weight: 500;
 }/*# sourceMappingURL=main.css.map */

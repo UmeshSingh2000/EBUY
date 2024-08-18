@@ -9,7 +9,7 @@ const Homepage = () => {
         }}  className='content'>
           <span className='text'>New</span><span className='text'>Mens</span> <span className='text'>Collections</span>
         </div>
-        <button>Shop Now</button>
+        <button>View</button>
         <p>GET UP TO <span>70% OFF</span></p>
       </div>
     </div>

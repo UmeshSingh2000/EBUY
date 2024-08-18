@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import Homepage from './Pages/Hompage/Homepage'
 import Navbar from './Components/Navbar/Navbar'
 import LocomotiveScroll from 'locomotive-scroll';
+import NewArrival from './Pages/NewArrival/NewArrival';
+import HamburgerMenu from './Components/Menu/HamburgerMenu';
 
 
 const App = () => {
@@ -19,7 +21,9 @@ const App = () => {
   return (
     <div>
       <Navbar/>
+      <HamburgerMenu/>
       <Homepage/>
+      <NewArrival/>
     </div>
   )
 }

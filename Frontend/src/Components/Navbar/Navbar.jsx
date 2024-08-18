@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import search from '../../assets/icons8-search-64.png'
 import bag from '../../assets/icons8-bag-50.png'
 import user from '../../assets/icons8-user-50.png'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+  const data = useSelector((state)=>state.menu.value)
+  useEffect(()=>{
+    console.log(data)
+  },[])
   return (
     <div className='navbar'>
       <div className="topHeader">
