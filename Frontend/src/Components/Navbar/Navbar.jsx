@@ -3,20 +3,21 @@ import search from '../../assets/icons8-search-64.png'
 import bag from '../../assets/icons8-bag-50.png'
 import user from '../../assets/icons8-user-50.png'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { menuClick } from '../../../Redux/features/menu/menuSlice'
 
 const Navbar = () => {
-  const data = useSelector((state)=>state.menu.value)
-  useEffect(()=>{
-    console.log(data)
-  },[])
+
+  const dispatch = useDispatch();
+  
+  
   return (
     <div className='navbar'>
       <div className="topHeader">
         <marquee behavior="" direction="">Free 2-Day Shipping On Order of 1500</marquee>
       </div>
       <div className="mainNav">
-        <div className="menu">
+        <div className="menu" onClick={()=>dispatch(menuClick())}>
           <i className="fa-solid fa-bars"></i>
           <h3>Menu</h3>
         </div>

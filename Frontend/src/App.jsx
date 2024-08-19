@@ -6,7 +6,9 @@ import NewArrival from './Pages/NewArrival/NewArrival';
 import HamburgerMenu from './Components/Menu/HamburgerMenu';
 
 
+
 const App = () => {
+  
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('#root'),

@@ -19,6 +19,61 @@ html {
   background-color: #101210;
   height: 100vh;
   width: 100%;
+  transition: all 0.4s cubic-bezier(0.88, 0.33, 0.29, 0.87);
+}
+.hamburger_menu .content {
+  padding-top: 15vh;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding-left: 5vw;
+  width: 100%;
+}
+.hamburger_menu .content .left {
+  z-index: 2;
+  width: 70%;
+}
+.hamburger_menu .content .left ul li {
+  letter-spacing: 3vw;
+  padding: 0 2vw;
+  font-size: 10vw;
+  text-transform: uppercase;
+  list-style: none;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+}
+.hamburger_menu .content .left ul li::after {
+  transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+}
+.hamburger_menu .content .left ul li:hover {
+  background-color: rgba(56, 56, 56, 0.568);
+}
+.hamburger_menu .content .left ul li:hover::after {
+  width: 100%;
+}
+.hamburger_menu .content .bg {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.hamburger_menu .content .bg h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(65, 65, 65, 0.4392156863);
+  letter-spacing: 1vw;
+  font-size: 30vw;
 }
 
 .navbar {
@@ -152,12 +207,18 @@ html {
 .admin-login .container form input {
   font-size: 2vw;
   background-color: #4E5057;
-  border: none;
+  border: 1px solid;
   padding: 0 1vw;
   width: 30vw;
   height: 5vw;
   color: #acadb1;
   border-radius: 3px;
+}
+.admin-login .container form input:user-valid {
+  border-color: green;
+}
+.admin-login .container form input:user-invalid {
+  border-color: red;
 }
 .admin-login .container form .button {
   display: flex;

@@ -8,18 +8,12 @@ export const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    },
+    menuClick : (state)=>{
+      state.value = !state.value
+    }
   },
 })
 
-export const { increment } = menuSlice.actions
+export const { menuClick } = menuSlice.actions
 
 export default menuSlice.reducer
