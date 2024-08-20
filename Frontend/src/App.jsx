@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar/Navbar'
 import LocomotiveScroll from 'locomotive-scroll';
 import NewArrival from './Pages/NewArrival/NewArrival';
 import HamburgerMenu from './Components/Menu/HamburgerMenu';
+import Category from './Pages/Category/Category';
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
       <Navbar/>
       <HamburgerMenu/>
       <Homepage/>
+      <Category/>
       <NewArrival/>
     </div>
   )
