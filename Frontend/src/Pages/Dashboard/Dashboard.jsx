@@ -1,8 +1,20 @@
 import React, { useRef, useState } from 'react'
 import Navbar from '../../Components/Dashboard/Navbar'
+import axios from 'axios';
 
 const Dashboard = () => {
     const [imagePreview, setImagePreview] = useState(null);
+    const [productName, setProductName] = useState('')
+    const [productDescription, setProductDescription] = useState('')
+    const [price, setPrice] = useState('')
+    const [discount, setDiscount] = useState('')
+    const [gender, setGender] = useState('')
+    const [imageFile, setImageFile] = useState(null);
+
+
+
+
+
     const imageUploadRef = useRef(null);
     const [checkBoxs, setCheckBoxs] = useState([
         {
@@ -31,6 +43,7 @@ const Dashboard = () => {
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
+            setImageFile(file)
             const reader = new FileReader();
             reader.onload = function (e) {
                 setImagePreview(e.target.result);
@@ -38,8 +51,29 @@ const Dashboard = () => {
             reader.readAsDataURL(file);
         } else {
             setImagePreview(null);
+            setImageFile(null)
+
         }
     };
+    const handleProductAdd = async () => {
+        const formData = new FormData()
+        formData.append('productName', productName);
+        formData.append('productDescription', productDescription);
+        formData.append('price', price);
+        formData.append('discount', discount);
+        formData.append('gender', gender);
+        formData.append('image', imageFile);
+        const selectedSize = checkBoxs.filter(checkbox => checkbox.checked).map(checkbox => checkbox.label)
+        formData.append('sizes',selectedSize)
+        
+        try{
+            const response = await axios.post('http://localhost:3000/addProduct/newProduct',formData)
+            alert('Product added Successfully',response.data)
+        }
+        catch(err){
+            console.log('Error adding product',err)
+        }
+    }
     return (
         <div className='dashboard'>
             <Navbar />
@@ -49,13 +83,14 @@ const Dashboard = () => {
                     <div className="left">
                         <h1>General Information</h1>
                         <div className="box">
-                            <input type="text" placeholder='Product Name' />
-                            <textarea placeholder='Product Description'></textarea>
+                            <input type="text" placeholder='Product Name' value={productName} onChange={(e) => setProductName(e.target.value)}/>
+                            <textarea placeholder='Product Description' value={productDescription} onChange={(e) => setProductDescription(e.target.value)}></textarea>
                         </div>
                         <div className="product-stats">
                             <div className="gender">
                                 <h1>Gender</h1>
-                                <select name="" id="">
+                                <select name="" id="" value={gender} onChange={(e) => setGender(e.target.value)}>
+                                    <option value="Select">Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
@@ -90,13 +125,13 @@ const Dashboard = () => {
                 <div className="priceDetails">
                     <div className='container'>
                         <div className="price">
-                            <input type="text" placeholder='Price' />
+                            <input type="text" placeholder='Price' value={price} onChange={(e) => setPrice(e.target.value)} />
                         </div>
                         <div className="discount">
-                            <input type="text" placeholder='Discount' />
+                            <input type="text" placeholder='Discount' value={discount} onChange={(e) => setDiscount(e.target.value)} />
                         </div>
                     </div>
-                    <button>Add product</button>
+                    <button onClick={handleProductAdd}>Add product</button>
                 </div>
             </div>
         </div>
