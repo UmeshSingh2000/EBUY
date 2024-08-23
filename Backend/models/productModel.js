@@ -8,7 +8,8 @@ const productSchema = new Schema({
     productDescription:String,
     image:Buffer,
     imageType:String,
-    gender:String
-})
+    gender:String,
+    sizes:String
+},{timestamps:true})
 const productModel = mongoose.model('Product',productSchema,'Product')
 module.exports = productModel;

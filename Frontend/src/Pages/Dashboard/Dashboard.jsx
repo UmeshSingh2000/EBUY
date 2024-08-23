@@ -71,7 +71,8 @@ const Dashboard = () => {
             alert('Product added Successfully',response.data)
         }
         catch(err){
-            console.log('Error adding product',err)
+            const message = err.response.data.message
+            alert(message)
         }
     }
     return (
