@@ -43,6 +43,9 @@ const NewArrival = () => {
                     )
                 })}
             </div>
+            <div className="btn">
+                <button>All Product</button>
+            </div>
         </div>
     )
 }

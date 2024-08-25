@@ -26,8 +26,8 @@ const App = () => {
       <Navbar/>
       <HamburgerMenu/>
       <Homepage/>
-      <Category/>
       <NewArrival/>
+      <Category/>
     </div>
   )
 }

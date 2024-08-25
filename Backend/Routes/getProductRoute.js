@@ -3,8 +3,8 @@ const router = express.Router();
 const productModel = require('../models/productModel')
 
 router.get('/topArrival', async (req, res) => {
-    try {
-        const products = await productModel.find().sort({ _id: -1 }).limit(3);
+    try { const products = await productModel.find().sort({ _id: -1 }).limit(3);
+       
         const topArrival = products.map(product => {
             return {
                 ...product.toObject(),

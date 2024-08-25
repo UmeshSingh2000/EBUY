@@ -522,8 +522,24 @@ html {
 
 .newArrival {
   padding-top: 30px;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
+}
+.newArrival .btn {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.newArrival .btn button {
+  font-size: 1.5vw;
+  font-weight: 500;
+  cursor: pointer;
+  height: 100%;
+  width: 150px;
+  background-color: #292828;
+  border: none;
+  color: white;
 }
 .newArrival .heading {
   display: flex;
@@ -545,10 +561,9 @@ html {
 .newArrival .product {
   display: flex;
   justify-content: center;
-  height: 100%;
   gap: 50px;
   margin: 2vw 10vw;
-  overflow: auto;
+  overflow: hidden;
 }
 .newArrival .product .row {
   width: 400px;
