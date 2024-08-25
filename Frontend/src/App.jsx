@@ -5,6 +5,8 @@ import LocomotiveScroll from 'locomotive-scroll';
 import NewArrival from './Pages/NewArrival/NewArrival';
 import HamburgerMenu from './Components/Menu/HamburgerMenu';
 import Category from './Pages/Category/Category';
+import Footer from './Components/Footer/Footer';
+
 
 
 
@@ -23,11 +25,13 @@ const App = () => {
   }, []);
   return (
     <div>
+      
       <Navbar/>
       <HamburgerMenu/>
       <Homepage/>
       <NewArrival/>
       <Category/>
+      <Footer/>
     </div>
   )
 }

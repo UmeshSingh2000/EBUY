@@ -21,6 +21,7 @@ html {
     gap: $gap;
 }
 
+
 //menu
 .hamburger_menu {
     position: absolute;
@@ -637,12 +638,14 @@ html {
     padding-top: 30px;
     height: 100dvh;
     width: 100%;
-    .btn{
+
+    .btn {
         height: 50px;
         width: 100%;
         display: flex;
         justify-content: center;
-        button{
+
+        button {
             font-size: 1.5vw;
             font-weight: 500;
             cursor: pointer;
@@ -653,10 +656,12 @@ html {
             color: white;
         }
     }
+
     .heading {
         display: flex;
         flex-direction: column;
         align-items: center;
+
         h1 {
             font-size: 2.5vw;
             font-weight: 300;
@@ -680,6 +685,7 @@ html {
         gap: 50px;
         margin: 2vw 10vw;
         overflow: hidden;
+
         .row {
             width: 400px;
 
@@ -762,3 +768,62 @@ html {
 }
 
 //new Arrival
+
+//footer
+.footer {
+    // height: 100vh;
+    width: 100%;
+    
+    p{
+        text-align: center;
+    }
+    .top {
+        height: 50%;
+        background-color: #101210;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;
+
+        h1 {
+            font-weight: 500;
+            color: rgb(122, 122, 122);
+            font-size: 6vw;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+
+            input {
+                background-color: transparent;
+                border: 1px solid white;
+                width: 400px;
+                height: 40px;
+                color: white;
+                font-size: 2vw;
+                font-weight: 500;
+                padding: 10px;
+            }
+
+            button {
+                background-color: #ffffff;
+                width: 100px;
+                height: 40px;
+                cursor: pointer;
+                border: none;
+                font-size: 1.5vw;
+            }
+        }
+    }
+
+    .bottom {
+       height: 100px;
+       @include flexCenter(0);
+    }
+}
+
+//footer
