@@ -3,8 +3,9 @@ const router = express.Router();
 const productModel = require('../models/productModel')
 
 router.get('/topArrival', async (req, res) => {
-    try { const products = await productModel.find().sort({ _id: -1 }).limit(3);
-       
+    try {
+        const products = await productModel.find().sort({ _id: -1 }).limit(3);
+
         const topArrival = products.map(product => {
             return {
                 ...product.toObject(),
@@ -14,6 +15,21 @@ router.get('/topArrival', async (req, res) => {
         res.json(topArrival);
 
     } catch (err) {
+        res.status(500).send("An error occurred while retrieving the products");
+    }
+})
+router.get('/allProduct', async (req, res) => {
+    try {
+        const products = await productModel.find();
+        const allProd = products.map(product => {
+            return {
+                ...product.toObject(),
+                image: product.image.toString('base64')  // Convert buffer to base64 string
+            };
+        });
+        res.json(allProd)
+    }
+    catch (err) {
         res.status(500).send("An error occurred while retrieving the products");
     }
 })

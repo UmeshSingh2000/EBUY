@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const NewArrival = () => {
     const [topArrival, setTopArrival] = useState([])
@@ -26,7 +27,7 @@ const NewArrival = () => {
                     return (
                         <div className="row" key={index}>
                             <div className="image">
-                                <img src={`data:${product.imageType};base64,${product.image}`} alt="hello" />
+                                <img src={`data:${product.imageType};base64,${product.image}`} alt="img" />
                             </div>
                             <div className="description">
                                 <h2>{product.productName}</h2>
@@ -44,7 +45,7 @@ const NewArrival = () => {
                 })}
             </div>
             <div className="btn">
-                <button>All Product</button>
+                <Link to='/allProduct'><button>All Product</button></Link>
             </div>
         </div>
     )

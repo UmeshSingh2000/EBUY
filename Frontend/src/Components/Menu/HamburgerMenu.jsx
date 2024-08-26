@@ -11,7 +11,7 @@ const HamburgerMenu = () => {
     const [currentImage, setCurrentImage] = useState(null)
     const [imageTransform, setImageTransform] = useState({ x: 0, y: 0 });
     const hamburgerStyle = {
-        top: menuStatus ? '0' : '-40%',
+        top: menuStatus ? '0' : '-100%',
     }
     const menuItems = useRef([])
     const imageRef = useRef()
