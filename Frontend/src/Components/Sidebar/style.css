@@ -1,0 +1,35 @@
+.sidebar {
+    width: 20%;
+    height: 100%;
+    padding: 20px;
+}
+.sidebar .categories h1,.sidebar .price h1,.sidebar .sizes h1{
+    font-size: 1.4vw;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+.sidebar .categories,.sidebar .sizes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+.sidebar .categories input,.sidebar .sizes input{
+    width: 20px;
+    height: 20px;
+}
+.sidebar .categories label,.sidebar .sizes label{
+    font-size: 1.2vw;
+    font-family: "Montserrat", sans-serif;
+}
+.men,.women,.kids,.xs,.s,.m,.l{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.sidebar .price{
+    margin: 20px 0;
+}
+.sidebar .price input{
+    width: 100%;
+}

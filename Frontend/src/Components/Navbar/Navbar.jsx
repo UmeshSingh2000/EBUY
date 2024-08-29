@@ -22,7 +22,7 @@ const Navbar = () => {
             <h3>Menu</h3>
           </div>
           <div className="logo">
-            <h1>Ebuy</h1>
+            <Link to='/' style={{color:'white',textDecoration:'none'}}><h1>Ebuy</h1></Link>
           </div>
           <div className="utils">
             <img src={search} alt="" />

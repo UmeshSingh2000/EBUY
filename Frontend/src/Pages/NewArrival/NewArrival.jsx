@@ -31,7 +31,7 @@ const NewArrival = () => {
                             </div>
                             <div className="description">
                                 <h2>{product.productName}</h2>
-                                <p>{product.productDescription}</p>
+                                <p>{`${product.productDescription.slice(0,25)}...`}</p>
                                 <div className="price">
                                     <h3>₹ {product.price}</h3>
                                     <h3 style={{ textDecoration: "line-through", color: 'gray' }}>
