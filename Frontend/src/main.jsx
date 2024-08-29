@@ -8,16 +8,19 @@ import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import { Provider } from 'react-redux'
 import { store } from '../Redux/ReduxStore/store.js';
 import ProductsPage from './Pages/Product/AllProductsPage.jsx';
+import ProductPage from './Components/ProductPage/ProductPage';
+
 
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App/>} />
+        <Route path='/' element={<App />} />
         <Route path='/admin/Login' element={<AdminLogin />} />
         <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/allProduct' element={<ProductsPage/>} />
+        <Route path='/allProduct' element={<ProductsPage />} />
+        <Route path='/product/:productId' element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>

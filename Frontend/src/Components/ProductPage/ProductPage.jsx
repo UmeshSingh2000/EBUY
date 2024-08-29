@@ -1,23 +1,27 @@
-import React from 'react'
-import img from '../../assets/b4376d2e-482d-403a-a48f-0b08e2fd681b1714722829820MASCLNSASSAFRASUnisexPrintedHoodedRawEdgeT-shirt1.jpg'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const ProductPage = () => {
+  const products = useSelector((state)=>state.allProduct.value)
+  const {productId} = useParams();
+  const product = products.find((prod)=>prod._id===productId);
   return (
     <div className='productPage'>
       <Navbar />
       <div className="container">
         <div className="left">
-          <img src={img} alt="" />
+          <img src={`data:${product.imageType};base64,${product.image}`} alt="img" />
         </div>
         <div className="right">
-          <div className="productName"><h1>MASCLN SASSAFRAS</h1></div>
+          <div className="productName"><h1>{product.productName}</h1></div>
           <div className="productDescription">
-            <p>Unisex Blue Abstract Printed Drop-Shoulder Cotton Oversized T-shirt</p>
+            <p>{product.productDescription}</p>
           </div>
           <div className="price">
-            <h1>₹1139</h1>
-            <h2>MRP ₹ <span>2999</span></h2>
-            <h3>(62% OFF)</h3>
+            <h1>{`₹${product.price}`}</h1>
+            <h2>MRP ₹ <span>{product.price+product.discount}</span></h2>
+            <h3>({Math.round((product.discount / (product.price + product.discount)) * 100)}% OFF)</h3>
           </div>
           <p>Inclusive of all taxes</p>
           <div className="sizes">
