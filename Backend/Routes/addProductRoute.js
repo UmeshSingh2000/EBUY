@@ -16,7 +16,11 @@ router.post('/newProduct', upload.single('image'), async (req, res) => {
         if (!productDescription) return res.status(400).json({ message: 'Product description is required' });
         if (!gender) return res.status(400).json({ message: 'Gender is required' });
         if (!req.file) return res.status(400).json({ message: 'Product image is required' });
-        if(!sizes) return res.status(400).json({message:'Specify the Size for the Product'})
+        if(!sizes) return res.status(400).json({message:'Specify the Size for the Product'});
+        //assign random id to product
+
+
+
         const image = req.file.buffer
         
         const imageType = req.file.mimetype;

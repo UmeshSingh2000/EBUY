@@ -3,7 +3,7 @@ import Navbar from '../../Components/Navbar/Navbar'
 import axios from 'axios'
 import ProductCard from '../../Components/Product Card/ProductCard';
 import ProductPageSidebar from '../../Components/Sidebar/ProductPageSidebar';
-const ProductsPage = () => {
+const AllProductsPage = () => {
     const [product, SetProduct] = useState([]);
     useEffect(() => {
         const fetchProduct = async () => {
@@ -36,4 +36,4 @@ const ProductsPage = () => {
     )
 }
 
-export default ProductsPage
+export default AllProductsPage

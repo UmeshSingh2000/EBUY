@@ -7,7 +7,7 @@ import AdminLogin from './Pages/AdminLogin/AdminLogin';
 import Dashboard from './Pages/Dashboard/Dashboard.jsx';
 import { Provider } from 'react-redux'
 import { store } from '../Redux/ReduxStore/store.js';
-import ProductsPage from './Pages/Product/ProductsPage.jsx';
+import ProductsPage from './Pages/Product/AllProductsPage.jsx';
 
 
 createRoot(document.getElementById('root')).render(

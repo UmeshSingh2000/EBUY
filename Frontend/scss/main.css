@@ -566,23 +566,38 @@ html {
   overflow: hidden;
 }
 .newArrival .product .row {
-  width: 400px;
+  width: 300px;
+  position: relative;
+}
+.newArrival .product .row::after {
+  content: "New";
+  position: absolute;
+  align-content: center;
+  text-align: center;
+  top: 2%;
+  right: 2%;
+  height: 50px;
+  width: 50px;
+  background-color: #C7F300;
+  border-radius: 50%;
 }
 .newArrival .product .row .image {
   width: 100%;
   height: 350px;
+  background-color: red;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0;
-  padding: 50px;
   position: relative;
   cursor: pointer;
 }
 .newArrival .product .row .image img {
-  transition: all 0.3s ease-in-out;
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .newArrival .product .row .description p {
   font-size: 1.2vw;
@@ -681,4 +696,110 @@ html {
 }
 .productsPage .mainContent .mainPage .product {
   height: 350px;
+}
+
+.productPage {
+  width: 100%;
+  height: 100vh;
+}
+.productPage .container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.productPage .container .left {
+  width: 40%;
+  height: 100%;
+  padding: 60px;
+}
+.productPage .container .left img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.productPage .container .right {
+  padding: 60px;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.productPage .container .right .sizes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.productPage .container .right .sizes label {
+  font-size: 1.5vw;
+  font-weight: 500;
+  cursor: pointer;
+}
+.productPage .container .right .sizes input {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.productPage .container .right .buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.productPage .container .right .buttons button {
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5vw;
+  font-weight: 500;
+}
+.productPage .container .right .buttons .addToCart {
+  background-color: #C7F300;
+  border: none;
+  font-weight: 500;
+  width: 200px;
+}
+.productPage .container .right p {
+  color: green;
+  font-family: "Montserrat", sans-serif;
+}
+.productPage .container .right .productName h1 {
+  font-size: 4vw;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+}
+.productPage .container .right .productDescription p {
+  font-size: 1.5vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  width: 50%;
+  color: #999898;
+}
+.productPage .container .right .price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.productPage .container .right .price h1,
+.productPage .container .right .price h2,
+.productPage .container .right .price h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+.productPage .container .right .price h1 {
+  font-size: 2vw;
+}
+.productPage .container .right .price h2 {
+  font-size: 1.7vw;
+}
+.productPage .container .right .price h2 span {
+  text-decoration: line-through;
+  font-weight: 500;
+  color: #898989;
+  font-size: 1.5vw;
+}
+.productPage .container .right .price h3 {
+  font-size: 1vw;
+  color: red;
 }/*# sourceMappingURL=main.css.map */
