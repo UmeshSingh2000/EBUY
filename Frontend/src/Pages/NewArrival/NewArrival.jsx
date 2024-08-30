@@ -9,7 +9,7 @@ const NewArrival = () => {
     const data = useSelector((state) => state.topProduct.value)
     const [topArrival, setTopArrival] = useState([])
     useEffect(() => {
-        if(data.length!=0){
+        if (data.length != 0) {
             return setTopArrival(data)
         }
         const fetchTopArrival = async () => {
@@ -24,7 +24,7 @@ const NewArrival = () => {
             }
         };
         fetchTopArrival()
-    }, [dispatch,data])
+    }, [dispatch, data])
     return (
         <div className='newArrival'>
             <div className="heading">
@@ -34,22 +34,24 @@ const NewArrival = () => {
             <div className="product">
                 {topArrival.map((product, index) => {
                     return (
-                        <div className="row" key={index}>
-                            <div className="image">
-                                <img src={`data:${product.imageType};base64,${product.image}`} alt="img" />
-                            </div>
-                            <div className="description">
-                                <h2>{product.productName}</h2>
-                                <p>{`${product.productDescription.slice(0, 25)}...`}</p>
-                                <div className="price">
-                                    <h3>₹ {product.price}</h3>
-                                    <h3 style={{ textDecoration: "line-through", color: 'gray' }}>
-                                        ₹ {product.price + product.discount}
-                                    </h3>
-                                    <p>({Math.round((product.discount / (product.price + product.discount)) * 100)}% OFF)</p>
+                        <Link to={`/product/${product._id}`} style={{color:'black',textDecoration:'none'}}>
+                            <div className="row" key={index}>
+                                <div className="image">
+                                    <img src={`data:${product.imageType};base64,${product.image}`} alt="img" />
+                                </div>
+                                <div className="description">
+                                    <h2>{product.productName}</h2>
+                                    <p>{`${product.productDescription.slice(0, 25)}...`}</p>
+                                    <div className="price">
+                                        <h3>₹ {product.price}</h3>
+                                        <h3 style={{ textDecoration: "line-through", color: 'gray' }}>
+                                            ₹ {product.price + product.discount}
+                                        </h3>
+                                        <p>({Math.round((product.discount / (product.price + product.discount)) * 100)}% OFF)</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>
