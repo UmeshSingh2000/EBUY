@@ -10,7 +10,7 @@ const Dashboard = () => {
     const [discount, setDiscount] = useState('')
     const [gender, setGender] = useState('')
     const [imageFile, setImageFile] = useState(null);
-
+    const [tags,setTags] = useState('');
 
 
 
@@ -63,9 +63,9 @@ const Dashboard = () => {
         formData.append('discount', discount);
         formData.append('gender', gender);
         formData.append('image', imageFile);
+        formData.append('tags',tags)
         const selectedSize = checkBoxs.filter(checkbox => checkbox.checked).map(checkbox => checkbox.label)
         formData.append('sizes',selectedSize)
-        
         try{
             const response = await axios.post('http://localhost:3000/addProduct/newProduct',formData)
             alert('Product added Successfully',response.data)
@@ -130,6 +130,16 @@ const Dashboard = () => {
                         </div>
                         <div className="discount">
                             <input type="text" placeholder='Discount' value={discount} onChange={(e) => setDiscount(e.target.value)} />
+                        </div>
+                        <div className="tags">
+                            <select name="" id="" value={tags} onChange={(e)=>setTags(e.target.value)}>
+                                <option value="select">Select</option>
+                                <option value="tshirt">Tshirt</option>
+                                <option value="jeans">Jeans</option>
+                                <option value="hoodie">Hoodie</option>
+                                <option value="shirt">Shirt</option>
+                                <option value="pant">Pant</option>
+                            </select>
                         </div>
                     </div>
                     <button onClick={handleProductAdd}>Add product</button>

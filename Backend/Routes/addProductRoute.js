@@ -9,7 +9,7 @@ const upload = multer({ storage: storage })
 
 router.post('/newProduct', upload.single('image'), async (req, res) => {
     try {
-        const { productName, price, discount, productDescription, gender,sizes } = req.body;
+        const { productName, price, discount, productDescription, gender,sizes,tags } = req.body;
         if (!productName) return res.status(400).json({ message: 'Product name is required' });
         if (!price || isNaN(price)) return res.status(400).json({ message: 'Price is required and must be a number' });
         if (!discount || isNaN(discount)) return res.status(400).json({ message: 'Discount is required and must be a number' });
@@ -17,8 +17,7 @@ router.post('/newProduct', upload.single('image'), async (req, res) => {
         if (!gender) return res.status(400).json({ message: 'Gender is required' });
         if (!req.file) return res.status(400).json({ message: 'Product image is required' });
         if(!sizes) return res.status(400).json({message:'Specify the Size for the Product'});
-
-
+        if(!tags) return res.status(400).json({message:'Add tag'})
 
         const image = req.file.buffer
         
@@ -31,7 +30,8 @@ router.post('/newProduct', upload.single('image'), async (req, res) => {
             image,
             imageType,
             gender,
-            sizes
+            sizes,
+            tags
         })
         await product.save()
         res.status(200).send("product created")

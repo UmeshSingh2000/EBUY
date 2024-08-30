@@ -691,11 +691,8 @@ html {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  gap: 0 30px;
+  gap: 20px 30px;
   justify-content: center;
-}
-.productsPage .mainContent .mainPage .product {
-  height: 350px;
 }
 
 .productPage {
@@ -802,4 +799,17 @@ html {
 .productPage .container .right .price h3 {
   font-size: 1vw;
   color: red;
+}
+.productPage .similarProd h1 {
+  font-size: 2vw;
+  margin: 30px 20px;
+  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+}
+.productPage .similarProd .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=main.css.map */

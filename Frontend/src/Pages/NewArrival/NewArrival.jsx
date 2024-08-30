@@ -34,8 +34,8 @@ const NewArrival = () => {
             <div className="product">
                 {topArrival.map((product, index) => {
                     return (
-                        <Link to={`/product/${product._id}`} style={{color:'black',textDecoration:'none'}}>
-                            <div className="row" key={index}>
+                        <Link to={`/product/${product._id}`} style={{color:'black',textDecoration:'none'}} key={index}>
+                            <div className="row" >
                                 <div className="image">
                                     <img src={`data:${product.imageType};base64,${product.image}`} alt="img" />
                                 </div>
