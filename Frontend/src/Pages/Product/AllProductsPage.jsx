@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../../Components/Loader/Loader';
 const AllProductsPage = () => {
+    const filterDetail = useSelector((state)=>state.filterCategory)
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
     const data = useSelector((state) => state.allProduct.value)
@@ -42,7 +43,7 @@ const AllProductsPage = () => {
                         {product.map((prod, index) => {
                             return (
                                 <div key={index} className="product">
-                                    <ProductCard details={prod} />
+                                    <ProductCard details={prod} filterDetail = {filterDetail}/>
                                 </div>
                             )
                         })}
