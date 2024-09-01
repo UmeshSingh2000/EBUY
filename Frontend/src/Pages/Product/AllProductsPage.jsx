@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../../Components/Loader/Loader';
 const AllProductsPage = () => {
-    const filterDetail = useSelector((state)=>state.filterCategory)
+    const filterCategory = useSelector((state)=>state.filterCategory)
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
-    const data = useSelector((state) => state.allProduct.value)
+    const data = useSelector((state) => state.allProduct.value) //product data
     const [product, SetProduct] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     useEffect(() => {
         if (data.length != 0) return SetProduct(data);
         const fetchProduct = async () => {
@@ -31,6 +32,19 @@ const AllProductsPage = () => {
         }
         fetchProduct();
     }, [dispatch])
+    useEffect(()=>{
+        let filtered = product
+        if(filterCategory.men) {
+            filtered = product.filter((prod)=>prod.gender === 'Male')
+        }
+        else if(filterCategory.women){
+            filtered = product.filter((prod)=>prod.gender === 'Female')
+        }
+        else if(filterCategory.kids){
+            filtered = product.filter((prod)=>prod.gender === 'Kids')
+        }
+        setFilteredProducts(filtered)
+    },[filterCategory,product])
     return (
         <div className='productsPage'>
             <Navbar />
@@ -40,10 +54,10 @@ const AllProductsPage = () => {
                     <Loader />
                 ) : (
                     <div className="mainPage">
-                        {product.map((prod, index) => {
+                        {filteredProducts.map((prod, index) => {
                             return (
                                 <div key={index} className="product">
-                                    <ProductCard details={prod} filterDetail = {filterDetail}/>
+                                    <ProductCard details={prod}/>
                                 </div>
                             )
                         })}
