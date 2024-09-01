@@ -18,10 +18,15 @@ export const sortProductSlice = createSlice({
       if(category === 'men') state.men = true;
       if(category === 'women') state.women = true;
       if(category === 'kids') state.kids = true;
+    },
+    resetFilter : (state)=>{
+      state.men=false;
+      state.women=false;
+      state.kids=false;
     }
   },
 })
 
-export const { filterByCategory } = sortProductSlice.actions
+export const { filterByCategory,resetFilter } = sortProductSlice.actions
 
 export default sortProductSlice.reducer
