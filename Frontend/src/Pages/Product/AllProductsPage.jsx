@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../../Components/Loader/Loader';
 const AllProductsPage = () => {
-    const filterCategory = useSelector((state)=>state.filterCategory)
+    const filterCategory = useSelector((state) => state.filterCategory)
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
     const data = useSelector((state) => state.allProduct.value) //product data
@@ -32,19 +32,25 @@ const AllProductsPage = () => {
         }
         fetchProduct();
     }, [dispatch])
-    useEffect(()=>{
+    useEffect(() => {
         let filtered = product
-        if(filterCategory.men) {
-            filtered = product.filter((prod)=>prod.gender === 'Male')
+        if (filterCategory.men) {
+            filtered = product.filter((prod) => prod.gender === 'Male')
         }
-        else if(filterCategory.women){
-            filtered = product.filter((prod)=>prod.gender === 'Female')
+        else if (filterCategory.women) {
+            filtered = product.filter((prod) => prod.gender === 'Female')
         }
-        else if(filterCategory.kids){
-            filtered = product.filter((prod)=>prod.gender === 'Kids')
+        else if (filterCategory.kids) {
+            filtered = product.filter((prod) => prod.gender === 'Kids')
+        }
+        const selectedSizes = filterCategory.sizes.filter(size => size.checked).map(size => size.label);
+        if (selectedSizes.length > 0) {
+            filtered = filtered.filter((prod) =>
+                selectedSizes.some(size => prod.sizes.includes(size))
+            );
         }
         setFilteredProducts(filtered)
-    },[filterCategory,product])
+    }, [filterCategory, product])
     return (
         <div className='productsPage'>
             <Navbar />
@@ -57,7 +63,7 @@ const AllProductsPage = () => {
                         {filteredProducts.map((prod, index) => {
                             return (
                                 <div key={index} className="product">
-                                    <ProductCard details={prod}/>
+                                    <ProductCard details={prod} />
                                 </div>
                             )
                         })}

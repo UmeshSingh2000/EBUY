@@ -33,3 +33,19 @@
 .sidebar .price input{
     width: 100%;
 }
+.clearFilter{
+    width: 100px;
+    height: 40px;
+    background-color: #292828;
+    cursor: pointer;
+    font-size: 1vw;
+    font-weight: 500;
+    border-radius: 50px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    transition: all .3s;
+}
+.clearFilter:active{
+    background-color: #C7F300;
+    color: black;
+}

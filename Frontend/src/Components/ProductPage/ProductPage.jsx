@@ -1,19 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '../Navbar/Navbar'
-import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import ProductCard from '../Product Card/ProductCard'
+import React, { useEffect, useState } from 'react';
+import Navbar from '../Navbar/Navbar';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import ProductCard from '../Product Card/ProductCard';
+import axios from 'axios';
+import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
+import Loader from '../Loader/Loader';
+
 const ProductPage = () => {
-  const products = useSelector((state) => state.allProduct.value)
   const { productId } = useParams();
+  const products = useSelector((state) => state.allProduct.value);
   const product = products.find((prod) => prod._id === productId);
-  const simProd = products.filter((prod) => prod.tags === product.tags && prod._id !== productId);
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    console.log(simProd);
-  }, [])
+    if (!product) {
+      const fetchProduct = async () => {
+        setLoading(true);
+        try {
+          const response = await axios.get('http://localhost:3000/product/allProduct');
+          const fetchData = response.data;
+          dispatch(setAllProduct(fetchData));
+        } catch (err) {
+          console.log(err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchProduct();
+    }
+  }, [dispatch]);
+
+  const simProd = product ? products.filter((prod) => prod.tags === product.tags && prod._id !== productId) : [];
+
   useEffect(() => {
-    document.title = `Buy ${product.productName} ${product.productDescription}`
-  }, [])
+    if(!product) return;
+    window.scrollTo(0,0);
+    document.title = `BUY || ${product.productName} ${product.productDescription}`
+  }, [product, simProd]);
+
+  if (!product) return <div><Loader /></div>;
+
   return (
     <div className='productPage'>
       <Navbar />
@@ -51,17 +79,15 @@ const ProductPage = () => {
       <div className="similarProd">
         <h1>Similar Product</h1>
         <div className="container">
-          {simProd.map((prod, index) => {
-            return (
-              <div key={index}>
-                <ProductCard details={prod} />
-              </div>
-            )
-          })}
+          {simProd.map((prod, index) => (
+            <div key={index}>
+              <ProductCard details={prod} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductPage
+export default ProductPage;

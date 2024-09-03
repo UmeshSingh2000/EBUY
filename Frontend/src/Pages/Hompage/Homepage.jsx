@@ -1,6 +1,8 @@
-
-import React from 'react'
+import React, { useEffect } from 'react'
 const Homepage = () => {
+  useEffect(()=>{
+    document.title = 'Ebuy || Buy Trending Cloths'
+  },[])
   return (
     <div className='homepage'>
       <div className="homepageContent">

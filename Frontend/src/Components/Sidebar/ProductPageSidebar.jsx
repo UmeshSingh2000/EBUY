@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { filterByCategory, resetFilter } from '../../../Redux/features/SortProduct/sortProductSlice';
+import { filterByCategory, filterBySize, resetFilter } from '../../../Redux/features/SortProduct/sortProductSlice';
 const ProductPageSidebar = () => {
     const data = useSelector((state)=>state.filterCategory)
     const dispatch = useDispatch();
@@ -34,25 +34,24 @@ const ProductPageSidebar = () => {
             <div className="sizes">
                 <h1>Size</h1>
                 <div className="xs">
-                    <input type="checkbox" id='xs' />
+                    <input type="checkbox" id='xs' onClick={()=>dispatch(filterBySize('Xs'))}/>
                     <label htmlFor="xs">Xs</label>
                 </div>
                 <div className="s">
-                    <input type="checkbox" id='s' />
+                    <input type="checkbox" id='s' onClick={()=>dispatch(filterBySize('S'))}/>
                     <label htmlFor="s">S</label>
                 </div>
                 <div className="m">
-                    <input type="checkbox" id='m' />
+                    <input type="checkbox" id='m' onClick={()=>dispatch(filterBySize('M'))}/>
                     <label htmlFor="m">M</label>
                 </div>
                 <div className="l">
-                    <input type="checkbox" id='l' />
+                    <input type="checkbox" id='l' onClick={()=>dispatch(filterBySize('L'))}/>
                     <label htmlFor="l">L</label>
                 </div>
             </div>
-            <button onClick={()=>dispatch(resetFilter())}>Clear</button>
+            <button className='clearFilter' onClick={()=>dispatch(resetFilter())}>Clear <i className="fa-solid fa-xmark"></i></button>
         </div>
     )
 }
-
 export default ProductPageSidebar
