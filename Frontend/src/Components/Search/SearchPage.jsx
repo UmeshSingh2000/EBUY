@@ -1,19 +1,16 @@
 import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
-import { Searchclick } from '../../../Redux/features/search/searchSlice';
+// import { Searchclick } from '../../../Redux/features/search/searchSlice';
 
 const SearchPage = () => {
     const [search,setSearch]=useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const searchStatus = useSelector((state) => state.search.value)
-    const searchPageStyle = {
-        top: searchStatus ? '0' : '-100%'
-    }
+    // const searchStatus = useSelector((state) => state.search.value)
     useEffect(() => {
         const handleSearch=(e)=>{
-            if(e.key==='Enter' && searchStatus && search.trim()){
+            if(e.key==='Enter' && search.trim()){
                 navigate(`/search?q=${encodeURIComponent(search)}`);
                 dispatch(Searchclick())
             }
@@ -23,13 +20,12 @@ const SearchPage = () => {
         return()=>{
             window.removeEventListener('keydown',handleSearch)
         }
-    },[searchStatus,search,navigate])
+    },[search,navigate])
     return (
-        <div className='searchPage' style={searchPageStyle}>
+        <div className='searchPage'>
             <div className="container">
                 <input type="text" placeholder='search' onChange={(e)=> setSearch(e.target.value)}/>
             </div>
-            
         </div>
     )
 }
