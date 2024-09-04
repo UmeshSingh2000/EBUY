@@ -41,7 +41,6 @@ const ProductPage = () => {
   }, [product, simProd]);
 
   if (!product) return <div><Loader /></div>;
-
   return (
     <div className='productPage'>
       <Navbar />

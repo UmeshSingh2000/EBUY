@@ -73,5 +73,4 @@ const AllProductsPage = () => {
         </div>
     )
 }
-
 export default AllProductsPage

@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { store } from '../Redux/ReduxStore/store.js';
 import ProductsPage from './Pages/Product/AllProductsPage.jsx';
 import ProductPage from './Components/ProductPage/ProductPage';
+import SearchPageResult from './Pages/SearchPageResult.jsx/SearchPageResult.jsx';
 
 
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/allProduct' element={<ProductsPage />} />
         <Route path='/product/:productId' element={<ProductPage />} />
+        <Route path='/search' element={<SearchPageResult/>} />
       </Routes>
     </BrowserRouter>
   </Provider>

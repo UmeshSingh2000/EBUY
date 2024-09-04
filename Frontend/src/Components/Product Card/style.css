@@ -6,7 +6,9 @@
     width: 200px;
     /* height: 250px; */
     cursor: pointer;
+    position: relative;
 }
+
 
 .productCard .image {
     width: 100%;
