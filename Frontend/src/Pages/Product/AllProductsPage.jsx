@@ -52,25 +52,25 @@ const AllProductsPage = () => {
         setFilteredProducts(filtered)
     }, [filterCategory, product])
     return (
-        <div className='productsPage'>
-            <Navbar />
-            <div className="mainContent">
-                <ProductPageSidebar />
-                {loading ? (
-                    <Loader />
-                ) : (
-                    <div className="mainPage">
-                        {filteredProducts.map((prod, index) => {
-                            return (
-                                <div key={index} className="product">
-                                    <ProductCard details={prod} />
-                                </div>
-                            )
-                        })}
-                    </div>
-                )}
+            <div className='productsPage'>
+                <Navbar />
+                <div className="mainContent">
+                    <ProductPageSidebar />
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        <div className="mainPage">
+                            {filteredProducts.map((prod, index) => {
+                                return (
+                                    <div key={index} className="product">
+                                        <ProductCard details={prod} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
     )
 }
 export default AllProductsPage

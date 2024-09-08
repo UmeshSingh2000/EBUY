@@ -41,6 +41,9 @@ export const sortProductSlice = createSlice({
       state.men = false;
       state.women = false;
       state.kids = false;
+      state.sizes.forEach((size)=>{
+        size.checked = false
+      })
     },
     filterBySize: (state,action) => {
       const selectedSize = action.payload

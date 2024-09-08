@@ -10,6 +10,7 @@ import SearchPage from '../Search/SearchPage';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const [searchClick,setSearchClick] = useState(false)
   return (
     <>
       <HamburgerMenu />
@@ -27,9 +28,9 @@ const Navbar = () => {
           <div className="logo">
             <Link to='/' style={{ color: 'white', textDecoration: 'none' }}><h1>Ebuy</h1></Link>
           </div>
-          <SearchPage />
+          <SearchPage search = {searchClick} />
           <div className="utils">
-            <img src={search} alt=""/>
+            <img src={search} alt="" onClick={()=>setSearchClick(true)}/>
             <img src={bag} alt="" />
             <Link to='/admin/Login'><img src={user} alt="" /></Link>
             {/* <i className="fa-brands fa-searchengin"></i>

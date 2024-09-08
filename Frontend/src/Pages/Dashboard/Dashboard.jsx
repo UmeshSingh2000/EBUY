@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../../Components/Dashboard/Navbar'
 import axios from 'axios';
 
@@ -10,11 +10,7 @@ const Dashboard = () => {
     const [discount, setDiscount] = useState('')
     const [gender, setGender] = useState('')
     const [imageFile, setImageFile] = useState(null);
-    const [tags,setTags] = useState('');
-
-
-
-
+    const [tags, setTags] = useState('');
     const imageUploadRef = useRef(null);
     const [checkBoxs, setCheckBoxs] = useState([
         {
@@ -39,7 +35,6 @@ const Dashboard = () => {
         updatedCheckboxes[index].checked = !updatedCheckboxes[index].checked;
         setCheckBoxs(updatedCheckboxes);
     }
-
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
         if (file) {
@@ -52,7 +47,6 @@ const Dashboard = () => {
         } else {
             setImagePreview(null);
             setImageFile(null)
-
         }
     };
     const handleProductAdd = async () => {
@@ -63,14 +57,14 @@ const Dashboard = () => {
         formData.append('discount', discount);
         formData.append('gender', gender);
         formData.append('image', imageFile);
-        formData.append('tags',tags)
-        const selectedSize = checkBoxs.filter(checkbox => checkbox.checked).map(checkbox => checkbox.label)
-        formData.append('sizes',selectedSize)
-        try{
-            const response = await axios.post('http://localhost:3000/addProduct/newProduct',formData)
-            alert('Product added Successfully',response.data)
+        formData.append('tags', tags);
+        const selectedSize = checkBoxs.filter(checkbox => checkbox.checked).map(checkbox => checkbox.label);
+        formData.append('sizes', selectedSize);
+        try {
+            const response = await axios.post('http://localhost:3000/addProduct/newProduct', formData)
+            alert('Product added Successfully', response.data)
         }
-        catch(err){
+        catch (err) {
             const message = err.response.data.message
             alert(message)
         }
@@ -84,16 +78,17 @@ const Dashboard = () => {
                     <div className="left">
                         <h1>General Information</h1>
                         <div className="box">
-                            <input type="text" placeholder='Product Name' value={productName} onChange={(e) => setProductName(e.target.value)}/>
+                            <input type="text" placeholder='Product Name' value={productName} onChange={(e) => setProductName(e.target.value)} />
                             <textarea placeholder='Product Description' value={productDescription} onChange={(e) => setProductDescription(e.target.value)}></textarea>
                         </div>
                         <div className="product-stats">
                             <div className="gender">
-                                <h1>Gender</h1>
+                                <h1>Category</h1>
                                 <select name="" id="" value={gender} onChange={(e) => setGender(e.target.value)}>
                                     <option value="Select">Select</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
+                                    <option value="Kids">Kids</option>
                                 </select>
                             </div>
                             <div className="size">
@@ -132,7 +127,7 @@ const Dashboard = () => {
                             <input type="text" placeholder='Discount' value={discount} onChange={(e) => setDiscount(e.target.value)} />
                         </div>
                         <div className="tags">
-                            <select name="" id="" value={tags} onChange={(e)=>setTags(e.target.value)}>
+                            <select name="" id="" value={tags} onChange={(e) => setTags(e.target.value)}>
                                 <option value="select">Select</option>
                                 <option value="tshirt">Tshirt</option>
                                 <option value="jeans">Jeans</option>
