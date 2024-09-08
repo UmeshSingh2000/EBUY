@@ -5,13 +5,15 @@ import { useNavigate } from 'react-router-dom';
 
 const SearchPage = (props) => {
     const searchClick = props.search
+    const setSearchClick = props.setSearchClick
     const [search, setSearch] = useState('');
     // const dispatch = useDispatch();
     const navigate = useNavigate();
     useEffect(() => {
-        if (searchClick) {
+        if (searchClick && search.trim()) {
             navigate(`/search?q=${encodeURIComponent(search)}`);
-            return ;
+            setSearchClick(false);
+            return;
         }
         const handleSearch = (e) => {
             if (e.key === 'Enter' && search.trim()) {
@@ -22,11 +24,16 @@ const SearchPage = (props) => {
         return () => {
             window.removeEventListener('keydown', handleSearch)
         }
-    }, [search, navigate,searchClick])
+    }, [search, navigate, searchClick])
     return (
         <div className='searchPage'>
             <div className="container">
-                <input type="text" placeholder='search' onChange={(e) => setSearch(e.target.value)} />
+                <input type="text" placeholder='search' onChange={(e) => {
+                    setSearch(e.target.value)
+                    if (searchClick) {
+                        setSearchClick(false);
+                    }
+                }} />
             </div>
         </div>
     )

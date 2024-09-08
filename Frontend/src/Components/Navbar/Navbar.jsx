@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="logo">
             <Link to='/' style={{ color: 'white', textDecoration: 'none' }}><h1>Ebuy</h1></Link>
           </div>
-          <SearchPage search = {searchClick} />
+          <SearchPage search = {searchClick} setSearchClick = {setSearchClick} />
           <div className="utils">
             <img src={search} alt="" onClick={()=>setSearchClick(true)}/>
             <img src={bag} alt="" />
