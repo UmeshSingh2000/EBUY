@@ -523,7 +523,7 @@ html {
 }
 
 .newArrival {
-  padding-top: 30px;
+  margin: 5vw 0;
   height: 100dvh;
   width: 100%;
 }
@@ -586,7 +586,6 @@ html {
 .newArrival .product .row .image {
   width: 100%;
   height: 350px;
-  background-color: red;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -627,66 +626,12 @@ html {
   font-weight: 500;
 }
 
-.footer {
-  width: 100%;
-}
-.footer p {
-  text-align: center;
-  font-weight: 500;
-}
-.footer .top {
-  height: 50%;
-  background-color: #101210;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 10px;
-}
-.footer .top h1 {
-  font-weight: 500;
-  color: rgb(122, 122, 122);
-  font-size: 6vw;
-  text-align: center;
-}
-.footer .top form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.footer .top form input {
-  background-color: transparent;
-  border: 1px solid white;
-  width: 400px;
-  height: 40px;
-  color: white;
-  font-size: 2vw;
-  font-weight: 500;
-  padding: 10px;
-}
-.footer .top form button {
-  background-color: #ffffff;
-  width: 100px;
-  height: 40px;
-  cursor: pointer;
-  border: none;
-  font-size: 1.5vw;
-}
-.footer .bottom {
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-}
-
 .productsPage {
   width: 100%;
 }
 .productsPage .mainContent {
   display: flex;
   width: 100%;
-  height: 85vh;
 }
 .productsPage .mainContent .mainPage {
   width: 80%;

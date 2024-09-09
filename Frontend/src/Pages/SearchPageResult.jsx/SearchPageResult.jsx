@@ -6,6 +6,7 @@ import ProductCard from '../../Components/Product Card/ProductCard';
 import axios from 'axios';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../../Components/Loader/Loader';
+import Footer from '../../Components/Footer/Footer';
 const SearchPageResult = () => {
     const data = useSelector((state) => state.allProduct.value)
     const location = useLocation();
@@ -44,7 +45,7 @@ const SearchPageResult = () => {
         <div className='searchPageResult'>
             <Navbar />
             <h1>Search Results for {searchTerm}</h1>
-            {loading ? <Loader/> : <div>
+            {loading ? <Loader /> : <div>
                 {filterOnSearch.length > 0 ? (
                     <div className='container'>
                         {filterOnSearch.map((prod, index) => {
@@ -59,7 +60,7 @@ const SearchPageResult = () => {
                     <p>No products found matching "{searchTerm}".</p>
                 )}
             </div>}
-
+            <Footer />
         </div>
     )
 }

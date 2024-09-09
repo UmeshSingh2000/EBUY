@@ -6,6 +6,7 @@ import ProductCard from '../Product Card/ProductCard';
 import axios from 'axios';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../Loader/Loader';
+import Footer from '../Footer/Footer';
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -85,6 +86,7 @@ const ProductPage = () => {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

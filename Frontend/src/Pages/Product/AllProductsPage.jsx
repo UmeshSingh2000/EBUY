@@ -6,6 +6,7 @@ import ProductPageSidebar from '../../Components/Sidebar/ProductPageSidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllProduct } from '../../../Redux/features/product/allproductSlice';
 import Loader from '../../Components/Loader/Loader';
+import Footer from '../../Components/Footer/Footer';
 const AllProductsPage = () => {
     const filterCategory = useSelector((state) => state.filterCategory)
     const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const AllProductsPage = () => {
         setFilteredProducts(filtered)
     }, [filterCategory, product])
     return (
+        <>
             <div className='productsPage'>
                 <Navbar />
                 <div className="mainContent">
@@ -71,6 +73,8 @@ const AllProductsPage = () => {
                     )}
                 </div>
             </div>
+            <Footer />
+        </>
     )
 }
 export default AllProductsPage

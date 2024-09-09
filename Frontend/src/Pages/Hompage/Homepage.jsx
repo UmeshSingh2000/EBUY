@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 const Homepage = () => {
-  useEffect(()=>{
+  useEffect(() => {
     document.title = 'Ebuy || Buy Trending Cloths'
-  },[])
+  }, [])
   return (
     <div className='homepage'>
       <div className="homepageContent">
         <div style={{
           display: 'flex',
-        }}  className='content'>
+        }} className='content'>
           <span className='text'>New</span><span className='text'>Mens</span> <span className='text'>Collections</span>
         </div>
         <button>View</button>
