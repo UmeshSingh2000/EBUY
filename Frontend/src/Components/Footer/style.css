@@ -5,11 +5,11 @@
     padding-top: 20px;
     margin-top: 10px;
 }
-
 .footer p {
     font-family: "Montserrat", sans-serif;
     padding: 10px;
     text-align: center;
+    font-size: 1vw;
 }
 
 .footer .container {
@@ -17,7 +17,9 @@
     justify-content: space-around;
     display: flex;
 }
-
+.footer h1{
+    font-size: 2.5vw;
+}
 .footer li,
 .footer h1 {
     font-family: "Montserrat", sans-serif;
@@ -27,11 +29,25 @@
 .footer li {
     cursor: pointer;
     margin-top: 10px;
+    font-size: 1vw;
+}
+.footer li:hover{
+    text-decoration: underline;
 }
 
 .footer .line {
     width: 100%;
     margin-top: 30px;
-    height: 2px;
+    height: 1px;
     background-color: white;
+}
+.footer .container .links .row{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 30px;
+}
+.footer .container .links .row i{
+    cursor: pointer;
+    font-size: 1.5vw;
 }

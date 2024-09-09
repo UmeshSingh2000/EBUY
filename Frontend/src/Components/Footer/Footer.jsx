@@ -38,10 +38,25 @@ const Footer = () => {
                         <li>Ebuy Article</li>
                     </ul>
                 </div>
+                <div className="links">
+                    <h1>Connect</h1>
+                    <div className="row">
+                        <i className="fa-brands fa-x-twitter"></i>
+                        <i className="fa-brands fa-youtube"></i>
+                    </div>
+                    <div className="row">
+                        <i className="fa-brands fa-facebook"></i>
+                        <i className="fa-brands fa-instagram"></i>
+                    </div>
+                    <div className="row">
+                        <i className="fa-brands fa-pinterest"></i>
+                    </div>
+                </div>
             </div>
             <div className="line"></div>
             <div className="footerBase">
-                <p>Copyright 2020. All rights reserved.</p>
+
+                <p>© Copyright 2024. All rights reserved.</p>
             </div>
         </div>
     )
