@@ -51,6 +51,7 @@ const AllProductsPage = () => {
             );
         }
         setFilteredProducts(filtered)
+        window.scroll(0,0);
     }, [filterCategory, product])
     return (
         <>
