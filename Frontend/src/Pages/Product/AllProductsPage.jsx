@@ -50,8 +50,18 @@ const AllProductsPage = () => {
                 selectedSizes.some(size => prod.sizes.includes(size))
             );
         }
+        const selectedPrices = filterCategory.prices.filter(price => price.checked).map(price => price.label);
+        if (selectedPrices.length > 0) {
+            filtered = filtered.filter((prod) => {
+                const price = parseFloat(prod.price);
+                return selectedPrices.some(priceRange => {
+                    const [min, max] = priceRange.split('-').map(Number);
+                    return price >= (min || 0) && (max ? price <= max : true);
+                });
+            });
+        }
         setFilteredProducts(filtered)
-        window.scroll(0,0);
+        window.scroll(0, 0);
     }, [filterCategory, product])
     return (
         <>

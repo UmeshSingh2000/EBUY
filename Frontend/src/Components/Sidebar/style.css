@@ -3,10 +3,13 @@
     height: 100%;
     padding: 20px;
 }
-.sidebar .categories h1,.sidebar .price h1,.sidebar .sizes h1{
-    font-size: 1.4vw;
-    font-weight: 500;
+.sidebar .categories h1,.sidebar .price h1,.sidebar .sizes h1,.sidebar .price h1{
+    font-size: 1.6vw;
+    font-weight: 400;
     font-family: "Montserrat", sans-serif;
+    background-color: #292828;
+    color: white;
+    padding: 0 10px;
 }
 .sidebar .categories,.sidebar .sizes{
     display: flex;
@@ -17,6 +20,7 @@
 .sidebar .categories input,.sidebar .sizes input{
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 .sidebar .categories label,.sidebar .sizes label{
     font-size: 1.2vw;
@@ -27,12 +31,7 @@
     align-items: center;
     gap: 10px;
 }
-.sidebar .price{
-    margin: 20px 0;
-}
-.sidebar .price input{
-    width: 100%;
-}
+
 .clearFilter{
     width: 100px;
     height: 40px;
@@ -48,4 +47,38 @@
 .clearFilter:active{
     background-color: #C7F300;
     color: black;
+}
+/* Style the container for price ranges */
+.sidebar .price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+
+.sidebar .price .range {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+  
+}
+
+
+.sidebar .price input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #292828; 
+    background-color: white; 
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+.sidebar .price label {
+    font-size: 1.2vw;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center; 
 }
