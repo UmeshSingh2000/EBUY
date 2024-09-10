@@ -788,4 +788,61 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.sponsers {
+  width: 100%;
+  padding: 20px;
+}
+.sponsers h1 {
+  font-size: 2.5vw;
+  font-weight: 300;
+  text-decoration: underline;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+.sponsers .top {
+  cursor: pointer;
+}
+.sponsers .top img {
+  width: 100%;
+}
+.sponsers .bottom {
+  cursor: pointer;
+  display: flex;
+}
+.sponsers .bottom img {
+  width: 50%;
+}
+
+.newsletter {
+  padding: 10px;
+  background-color: #101210;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.newsletter h1 {
+  color: white;
+  font-weight: 500;
+  font-size: 5vw;
+}
+.newsletter input {
+  width: 50%;
+  font-family: "Montserrat", sans-serif;
+  height: 50px;
+  background-color: rgb(51, 51, 51);
+  padding: 0 10px;
+  color: white;
+  font-weight: 400;
+  font-size: 1.2vw;
+}
+.newsletter button {
+  width: 20%;
+  height: 50px;
+  font-size: 2vw;
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

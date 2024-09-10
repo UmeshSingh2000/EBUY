@@ -1,5 +1,6 @@
 // @import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -767,9 +768,11 @@ html {
 //productsPage
 .productsPage {
     width: 100%;
+
     .mainContent {
         display: flex;
         width: 100%;
+
         .mainPage {
             width: 80%;
             display: flex;
@@ -947,9 +950,10 @@ html {
     position: absolute;
     right: 10%;
     @include flexCenter(0);
+
     // z-index: 100;
     .container {
-        input{
+        input {
             width: 90%;
             padding: 10px;
             height: 50%;
@@ -965,12 +969,13 @@ html {
 //searchPage
 
 //searchPageResult
-.searchPageResult{
-    h1{
+.searchPageResult {
+    h1 {
         font-size: 3vw;
         font-weight: 500;
     }
-    .container{
+
+    .container {
         padding: 10px;
         display: flex;
         flex-wrap: wrap;
@@ -978,4 +983,72 @@ html {
         // padding: 20px 50px;
     }
 }
+
 //searchPageResult
+
+//sponsers
+.sponsers {
+    h1 {
+        font-size: 2.5vw;
+        font-weight: 300;
+        text-decoration: underline;
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+    }
+    width: 100%;
+    padding: 20px;
+
+    .top {
+        cursor: pointer;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .bottom {
+        cursor: pointer;
+        display: flex;
+
+        img {
+            width: 50%;
+        }
+    }
+}
+
+//sponsers
+
+//newsletter
+.newsletter{
+    padding: 10px;
+    background-color: #101210;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    h1{
+        color: white;
+        font-weight: 500;
+        font-size: 5vw;
+    }
+    input{
+        width: 50%;
+        font-family: "Montserrat", sans-serif;
+
+        height: 50px;
+        background-color: rgb(51, 51, 51);
+        padding: 0 10px;
+        color: white;
+        font-weight:400;
+        font-size: 1.2vw;
+    }
+    button{
+        width: 20%;
+        height: 50px;
+        font-size: 2vw;
+        cursor: pointer;
+    }
+}
+//newsletter
