@@ -4,6 +4,7 @@ import img1 from '../../assets/majid-akbari-6x8uifBQ7As-unsplash.jpg'
 import img2 from '../../assets/lance-reis-FPYq6DDI1gA-unsplash.jpg'
 import img3 from '../../assets/my-networking-apparel-54VE0-oytqo-unsplash.jpg'
 import { menuClick } from '../../../Redux/features/menu/menuSlice';
+import { Link } from 'react-router-dom';
 
 const HamburgerMenu = () => {
     const dispatch = useDispatch();
@@ -44,9 +45,9 @@ const HamburgerMenu = () => {
                 </div>
                 <div className="left">
                     <ul>
-                        <li ref={(el) => (menuItems.current[0] = el)} onClick={() => dispatch(menuClick())}>Men</li>
-                        <li ref={(el) => (menuItems.current[1] = el)} onClick={() => dispatch(menuClick())}>Women</li>
-                        <li ref={(el) => (menuItems.current[2] = el)} onClick={() => dispatch(menuClick())}>Kids</li>
+                        <Link to='/category/mens'><li ref={(el) => (menuItems.current[0] = el)} onClick={() => dispatch(menuClick())}>Men</li></Link>
+                        <Link to='/category/women'><li ref={(el) => (menuItems.current[1] = el)} onClick={() => dispatch(menuClick())}>Women</li></Link>
+                        <Link to='/category/kids'><li ref={(el) => (menuItems.current[2] = el)} onClick={() => dispatch(menuClick())}>Kids</li></Link>
                     </ul>
                     {currentImage && <div className='image'>
                         <img src={currentImage} ref={imageRef} alt="" style={{

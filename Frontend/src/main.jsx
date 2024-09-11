@@ -10,6 +10,7 @@ import { store } from '../Redux/ReduxStore/store.js';
 import ProductsPage from './Pages/Product/AllProductsPage.jsx';
 import ProductPage from './Components/ProductPage/ProductPage';
 import SearchPageResult from './Pages/SearchPageResult.jsx/SearchPageResult.jsx';
+import Mens from './Pages/Category Section/Category.jsx';
 
 
 
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/allProduct' element={<ProductsPage />} />
         <Route path='/product/:productId' element={<ProductPage />} />
         <Route path='/search' element={<SearchPageResult/>} />
+        <Route path='/category/:category' element={<Mens/>} />
       </Routes>
     </BrowserRouter>
   </Provider>
