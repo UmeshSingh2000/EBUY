@@ -45,9 +45,9 @@ const HamburgerMenu = () => {
                 </div>
                 <div className="left">
                     <ul>
-                        <Link to='/category/mens'><li ref={(el) => (menuItems.current[0] = el)} onClick={() => dispatch(menuClick())}>Men</li></Link>
-                        <Link to='/category/women'><li ref={(el) => (menuItems.current[1] = el)} onClick={() => dispatch(menuClick())}>Women</li></Link>
-                        <Link to='/category/kids'><li ref={(el) => (menuItems.current[2] = el)} onClick={() => dispatch(menuClick())}>Kids</li></Link>
+                        <Link style={linkStyle} to='/category/mens'><li ref={(el) => (menuItems.current[0] = el)} onClick={() => dispatch(menuClick())}>Men</li></Link>
+                        <Link style={linkStyle} to='/category/women'><li ref={(el) => (menuItems.current[1] = el)} onClick={() => dispatch(menuClick())}>Women</li></Link>
+                        <Link style={linkStyle} to='/category/kids'><li ref={(el) => (menuItems.current[2] = el)} onClick={() => dispatch(menuClick())}>Kids</li></Link>
                     </ul>
                     {currentImage && <div className='image'>
                         <img src={currentImage} ref={imageRef} alt="" style={{
@@ -60,6 +60,9 @@ const HamburgerMenu = () => {
             </div>
         </div>
     )
+}
+const linkStyle = {
+    textDecoration:'none'
 }
 
 export default HamburgerMenu
